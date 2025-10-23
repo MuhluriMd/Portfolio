@@ -1,60 +1,145 @@
+/* GENERAL STYLING */
 body {
+    margin: 0;
     font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
     color: #333;
+    background-color: #f9f9f9;
 }
 
-header {
-    background: #444;
-    color: #fff;
-    padding: 10px 20px;
-    text-align: center;
-}
-
-header h1 {
-    margin: 0;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: #fff;
+a {
+    color: #0077cc;
     text-decoration: none;
 }
 
-section {
-    padding: 20px;
+a:hover {
+    text-decoration: underline;
 }
 
-section h2 {
+/* NAVIGATION BAR */
+header {
+    background-color: #f03636;
+    padding: 10px 30px;
+    position: fixed;
+    top: 0;
+    left: 300px; /* same as sidebar width */
+    width: calc(100% - 300px); /* header only on right side */
+    z-index: 10;
+    box-sizing: border-box;
+}
+
+/* Align nav links to the right */
+#navigation ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#navigation li {
+    margin-left: 25px;
+}
+/* MAIN CONTAINER (LEFT + RIGHT) */
+.main-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* LEFT SIDE - PROFILE (FIXED) */
+#profile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 28%;
+    height: 100vh;
+    background-color: #111;
+    color: white;
     text-align: center;
-    margin-bottom: 20px;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 #profile img {
-    max-width: 400px; /* Adjust the width to make it smaller */
-    height: auto; /* Maintain the aspect ratio */
-    display: block; /* Center the image */
-    margin: 0 auto; /* Center the image */
-     /* Optional: make the image circular */
-    border: 2px solid #ccc; /* Optional: add a border */
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid white;
+    object-fit: cover;
+    margin-bottom: 20px;
 }
 
+#profile h2 {
+    margin: 10px 0 5px;
+}
 
-footer {
-    text-align: center;
-    background: #444;
-    color: #fff;
-    padding: 10px 0;
+#profile .title {
+    font-style: italic;
+    color: #aaa;
+    margin-bottom: 30px;
+}
+
+.contact-info h3 {
+    border-bottom: 1px solid #555;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.contact-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-info li {
+    margin: 8px 0;
+    font-size: 0.95em;
+}
+
+.contact-info a {
+    color: #00bcd4;
+}
+
+#profile footer {
+    font-size: 0.8em;
+    color: #aaa;
+}
+
+/* RIGHT SIDE - MAIN CONTENT */
+.content {
+    margin-left: 28%;
+    padding: 40px;
+    background-color: #fff;
+    box-sizing: border-box;
+    width: 72%;
+}
+
+.content h2 {
+    border-bottom: 2px solid #0077cc;
+    padding-bottom: 5px;
+}
+
+.content ul {
+    list-style: square;
+    padding-left: 20px;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 900px) {
+    .main-container {
+        flex-direction: column;
+    }
+
+    #profile {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .content {
+        margin-left: 0;
+        width: 100%;
+    }
 }

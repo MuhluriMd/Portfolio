@@ -8,72 +8,73 @@
     <link rel='stylesheet' type='text/css' media='screen' href='Styling portifolio.css'>
     <script src='main.js'></script>
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-
+    
 </head>
 <body>
     <header>
-        <h1>Welcome to My Portfolio!</h1>
-        <nav>
+        <nav id="navigation">
             <ul>
-                <li><a href="#profile">Profile</a></li>
-               <li><a href="#about">About</a></li>
-               <li><a href="#projects">Projects</a></li>
-               <li><a href="#information">Info</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#resume">Resume</a></li>
             </ul>
         </nav>
     </header>
-    <section id="profile">
-    <H2>PROFILE</H2>
-        <img src="Profile.jpg" alt="Profile">
-    </section>
 
-    <section id="about">
-        <h2>ABOUT ME</h2>
-        <p>MY NAME IS MUHLURI MUDAKA AND I'M PROUDLY TSONGA. I AM 21 YEARS OLD, 
-            CURRENTLY STUDYING COMPUTER SCIENCE AT <a href="https://www.tut.ac.za/">TSWANE UNIVERSITY OF TECHNOLOGY(TUT)</a>.
-             I'M A DEPENDABLE AND ORGANIZED INDIVIDUAL WHO ENJOYS HELPING AND KEEPING THINGS RUNNING SMOOTHLY, ALWAYS WILLING
-              TO LEARN, AND LOVE CHALLANGES AS WELL AS REACHING NEW MILESTONES. ALWAYS READY TO STEP IN AND HELP WHENEVER I'M NEEDED,
-               WITH A POSITIVE ATTITUDE AND FOCUS ON GETTING THINGS DONE RIGHT. <br>
-               <br>WITH THE FOLLOWING SKILLS:
-               <ul>
-                    <li>SQL</li>
-                    <li>HTML & CSS</li>
+    <div class="main-container">
+        <aside id="profile">
+            <img src="Profile.jpg" alt="Profile Picture">
+            <h2>MUHLURI MUDAKA</h2>
+            <p class="title">SOFTWARE DEVELOPER</p>
+
+            <div class="contact-info">
+                <h3>CONTACT</h3>
+                <ul>
+                    <li><a href="mailto:mudakamuhluri@gmail.com">mudakamuhluri@gmail.com</a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=61553994123173" target="_blank">Facebook</a></li>
+                    <li><a href="https://www.instagram.com/muhluri_md/profilecard/?igsh=cWFiajFnendqamdn" target="_blank">Instagram</a></li>
+                    <li>📞 082 598 1131</li>
+                </ul>
+            </div>
+
+            <footer>
+                <p>&copy; 2024 Muhluri Mudaka</p>
+            </footer>
+        </aside>
+
+        <main class="content">
+            <section id="about">
+                <h2>ABOUT ME</h2>
+                <p>MY NAME IS MUHLURI MUDAKA AND I'M PROUDLY TSONGA. I AM CURRENTLY STUDYING COMPUTER SCIENCE AT 
+                    <a href="https://www.tut.ac.za/">TSHWANE UNIVERSITY OF TECHNOLOGY (TUT)</a>.
+                    I'M A DEPENDABLE AND ORGANIZED INDIVIDUAL WHO ENJOYS HELPING AND KEEPING THINGS RUNNING SMOOTHLY.
+                    ALWAYS WILLING TO LEARN, AND LOVE CHALLENGES AS WELL AS REACHING NEW MILESTONES.
+                    ALWAYS READY TO STEP IN AND HELP WHENEVER I'M NEEDED, WITH A POSITIVE ATTITUDE AND FOCUS ON GETTING THINGS DONE RIGHT.
+                </p>
+
+                <h3>TECHNICAL SKILLS</h3>
+                <ul>
                     <li>JAVA</li>
+                    <li>HTML</li>
+                    <li>CSS</li>
                     <li>JAVASCRIPT</li>
+                    <li>KOTLIN</li>
                     <li>PYTHON</li>
-               </ul>
-              
-               
-            </p>
-    </section>
+                    <li>GIT</li>
+                </ul>
+            </section>
 
-    <section id="projects"> 
-    <h2>PROJECTS</h2>
-        <p>No projects yet</p>
-    </section>
- 
-    <section id="information">
-        <h2>INFO</h2>
-        <p>
-            AVAILABLE ON THE FOLLOWING PLATFORMS:
-            <ul>
-                <a href="https://www.facebook.com/profile.php?id=61553994123173" target="_blank"><i class="fab fa-facebook"></i> Muhluri Mudaka</a> 
-                <br>
-                <a href="https://www.instagram.com/muhluri_md/profilecard/?igsh=cWFiajFnendqamdn" target="_blank"><i class="fab fa-instagram"></i> muhluri_md</a>
-                <br>
-                <a href="mailto:mudakamuhluri@gmail.com" target="_blank"><i class="fas fa-envelope"></i> mudakamuhluri@gmail.com</a>
-                <br>
-                <i class="fas fa-phone"></i> 0825981131
-            </ul>
-        </p>
+            <section id="projects">
+                <h2>PROJECTS</h2>
+                <p>No projects yet.</p>
+            </section>
 
-    </section>
-
-
-    <footer>
-        <p>&copy; 2024 Muhluri Mudaka. All rights reserved.</p>
-    </footer>
-
+            <section id="education">
+                <h2>EDUCATION</h2>
+                <p>Currently pursuing a Bachelor’s Degree in Computer Science at TUT.</p>
+            </section>
+        </main>
+    </div>
 </body>
-</html>
+
