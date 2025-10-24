@@ -17,7 +17,7 @@ a:hover {
 
 /* NAVIGATION BAR */
 header {
-    background-color: #f03636;
+    background-color: hsl(0, 20%, 1%);
     padding: 10px 30px;
     position: fixed;
     top: 0;
@@ -73,7 +73,7 @@ header {
 }
 
 #profile h2 {
-    margin: 10px 0 5px;
+    margin: 30px 0 5px;
 }
 
 #profile .title {
@@ -142,4 +142,17 @@ header {
         margin-left: 0;
         width: 100%;
     }
+    .edu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edu-item h3 {
+  margin: 0;
+}
+
+.edu-item .year {
+  font-weight: normal;
+}
 }
