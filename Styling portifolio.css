@@ -180,3 +180,85 @@ header {
       transform: translateY(-8px);
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
+
+.skills-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+  text-align: center;
+}
+
+.skills-list div {
+  background: #e78787;
+  border-radius: 10px;
+  padding: 10px;
+  transition: transform 0.3s;
+}
+
+.skills-list div:hover {
+  transform: scale(1.05);
+  background: #e0f7ff;
+}
+
+.skills-list img {
+  width: 40px;
+  display: block;
+  margin: 0 auto 8px;
+}
+#backToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 25px;
+  background: #0077cc;
+  color: rgb(136, 10, 10);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  display: none;
+  transition: background 0.3s;
+}
+
+#backToTop:hover {
+  background: #005fa3;
+}
+
+/* DARK MODE */
+body.dark-mode {
+  background-color: #111;
+  color: #eee;
+}
+
+body.dark-mode a {
+  color: #00c3ff;
+}
+
+body.dark-mode header {
+  background-color: #000;
+}
+
+body.dark-mode .card {
+  background-color: #1c1c1c;
+  color: #eee;
+}
+
+#darkModeToggle {
+  background: transparent;
+  color: white;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+#darkModeToggle:hover {
+  transform: rotate(20deg);
+}
+
+/* ACTIVE NAV LINK */
+.nav-link.active {
+  color: #00bcd4;
+  font-weight: bold;
+  border-bottom: 2px solid #00bcd4;
+}
