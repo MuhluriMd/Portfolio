@@ -5,7 +5,7 @@
     <title>My Portfolio</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='Styling portifolio.css'>
-    <script src='main.js'></script>
+   
 
     
 </head>
@@ -19,7 +19,7 @@
                 <li><a href="#education">Education</a></li>
                 <li><a href="#resume">Resume</a></li>
             </ul>
-            <button id="darkModeToggle">🌙</button>
+           
         </nav>
     </header>
 
@@ -78,39 +78,38 @@
                 <div class="card">
                    <h3>Web Development</h3>
                    <p>Projects are built using HTML, CSS, JavaScript.</p>
-                   <button>
-                    <a href="">View</a>
-                   </button>
+                   <button class="view-btn" data-category="web">View</button>
                    
                 </div>
 
                <div class="card">
                    <h3>Group Collaborations</h3>
                    <p>Projects that I did with other students.</p>
-                   <button>
-                       <a href="">View</a>
-                   </button>
+                    <button class="view-btn" data-category="group">View</button>
                </div>
 
                <div class="card">
                      <h3>University Projects(JAVA)</h3>
                      <p>Since I'm majoring with Java in Class, here are some of the projects.</p>
-                     <button>
-                       <a href="">View</a>
-                     </button>
+                      <button class="view-btn" data-category="java">View</button>
                </div>
 
                
                <div class="card">
                      <h3>Phython</h3>
                      <p>Self-taught Phython, I provided projects I did.</p>
-                     <button>
-                       <a href="">View</a>
-                     </button>
+                      <button class="view-btn" data-category="python">View</button>
                </div>
             </div>
             </section>
-
+            
+            <div id="projectModal" class="modal">
+              <div class="modal-content">
+               <span class="close">&times;</span>
+               <h4 id="modalTitle"></h4>
+              <div id="modalBody"></div>
+              </div>
+            </div>
 
       <section id="education">
          <h2>EDUCATION</h2>
@@ -141,7 +140,8 @@
     
     </main>
     </div>
-     <button id="backToTop">↑</button>
+   
      <script src="main.js"></script>
 </body>
+</html>
 
