@@ -64,7 +64,7 @@ const projectData = {
   group: [
     {
       title: "Vigilant Aid",
-      desc: "VigilantAids is a mobile application designed to empower visually impaired individuals to move through the world with greater confidence, safety, and independence./nTechonologies used: Android Studio, PostgreSQL, Java",
+      desc: "VigilantAids is a mobile application designed to empower visually impaired individuals to move through the world with greater confidence, safety, and independence.Techonologies used: Android Studio, PostgreSQL",
       github: "https://github.com/K-Moeti/VigilantAid",
     },
   ],
@@ -84,7 +84,6 @@ const projectData = {
     {
       title: "Weather App",
       desc: "Fetches live weather data using an API.",
-      live: "https://example.com/weatherapp",
       github: "https://github.com/MuhluriMd/WeatherApp",
     },
     
@@ -100,23 +99,33 @@ document.querySelectorAll(".view-btn").forEach((btn) => {
     modalTitle.textContent = btn.parentElement.querySelector("h3").textContent;
 
     modalBody.innerHTML = projects
-      .map(
-        (p) => `
-        <div style="margin-bottom: 20px; border-bottom: 1px solid #ccc; padding-bottom: 10px;">
-          <h4>${p.title}</h4>
-         <p>${p.desc.replace(/\n/g, "<br>")}</p>
-          <div style="margin-top: 8px;">
-            <a href="${p.live}" target="_blank" style="margin-right: 10px; color: #007bff; text-decoration: none;">🌐 Live Demo</a>
-            <a href="${p.github}" target="_blank" style="color: #333; text-decoration: none;">💻 GitHub</a>
+      .map((p) => {
+        // Build links dynamically
+        let linksHTML = "";
+        if (p.live) {
+          linksHTML += `<a href="${p.live}" target="_blank" style="margin-right: 10px; color: #007bff; text-decoration: none;">🌐 Live Demo</a>`;
+        }
+        if (p.github) {
+          linksHTML += `<a href="${p.github}" target="_blank" style="color: #333; text-decoration: none;">💻 GitHub</a>`;
+        }
+
+        // Render project card
+        return `
+          <div style="margin-bottom: 20px; border-bottom: 1px solid #ccc; padding-bottom: 10px;">
+            <h4>${p.title}</h4>
+            <p>${p.desc.replace(/\n/g, "<br>")}</p>
+            <div style="margin-top: 8px;">
+              ${linksHTML}
+            </div>
           </div>
-        </div>
-      `
-      )
+        `;
+      })
       .join("");
 
     modal.style.display = "block";
   });
 });
+
 
 // Close modal when clicking X or outside the modal
 if (closeModal) {
