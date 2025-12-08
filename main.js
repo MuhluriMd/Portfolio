@@ -68,7 +68,7 @@ const projectData = {
       github: "https://github.com/K-Moeti/VigilantAid",
     },
   ],
-  java: [
+  /*java: [
     {
       title: "Voucher Generator",
       desc: "A Java app that creates time-limited vouchers.",
@@ -87,7 +87,7 @@ const projectData = {
       github: "https://github.com/MuhluriMd/WeatherApp",
     },
     
-  ],
+  ],*/
 };
 
 // Handle "View" button click
