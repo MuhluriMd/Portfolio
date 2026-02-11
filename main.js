@@ -68,13 +68,14 @@ const projectData = {
       github: "https://github.com/K-Moeti/VigilantAid",
     },
   ],
-  /*java: [
+  java: [
     {
-      title: "Voucher Generator",
-      desc: "A Java app that creates time-limited vouchers.",
-      github: "https://github.com/MuhluriMd/VoucherGenerator",
+      title: "😊First Code",
+      desc: "A Java code that prints 'Hello, World!' to the console.",
+      github: "https://github.com/MuhluriMd/FirstCode/blob/main/Hello/src/hello/Hello.java",
     },
-    {
+     ],
+    /*{
       title: "Bookstore System",
       desc: "Manages books, customers, and orders using JDBC.",
       github: "https://github.com/MuhluriMd/BookstoreSystem",
