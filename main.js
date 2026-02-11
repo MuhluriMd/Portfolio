@@ -80,15 +80,15 @@ const projectData = {
       desc: "Manages books, customers, and orders using JDBC.",
       github: "https://github.com/MuhluriMd/BookstoreSystem",
     },
-  ],
+  ],*/
   python: [
     {
-      title: "Weather App",
-      desc: "Fetches live weather data using an API.",
-      github: "https://github.com/MuhluriMd/WeatherApp",
+      title: "Count Words in a Text File",
+      desc: "Allow user to enter sentence and then it count number of words and words that are repeated.",
+      github: "https://github.com/MuhluriMd/CountWords/blob/main/WordCount.py",
     },
     
-  ],*/
+  ],
 };
 
 // Handle "View" button click
