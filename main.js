@@ -67,6 +67,11 @@ const projectData = {
       desc: "VigilantAids is a mobile application designed to empower visually impaired individuals to move through the world with greater confidence, safety, and independence.Techonologies used: Android Studio, PostgreSQL",
       github: "https://github.com/K-Moeti/VigilantAid",
     },
+    {
+      title: "Library Management System",
+      desc: "A system for managing books, members in a library. Technologies Used: Java and MySQL for backend and JavaFX for frontend.",
+      github: "https://github.com/MuhluriMd/Library-Management-System",
+    }
   ],
       
   java: [
