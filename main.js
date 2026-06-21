@@ -56,8 +56,8 @@ const projectData = {
     },
     {
       title: "MUWACE Online Shop",
-      desc: "Fashion store website with multiple categories.",
-      live: "#", 
+      desc: "Fashion store website with multiple categories.(Under development)Techonologies used: HTML, CSS, JavaScript.",
+      live: "", 
       github: "https://github.com/MuhluriMd/Muwace-Web-Application", 
     },
   ],
@@ -68,19 +68,20 @@ const projectData = {
       github: "https://github.com/K-Moeti/VigilantAid",
     },
   ],
+      
   java: [
     {
       title: "😊First Code",
       desc: "A Java code that prints 'Hello, World!' to the console.",
       github: "https://github.com/MuhluriMd/FirstCode/blob/main/Hello/src/hello/Hello.java",
     },
-     ],
-    /*{
-      title: "Bookstore System",
-      desc: "Manages books, customers, and orders using JDBC.",
-      github: "https://github.com/MuhluriMd/BookstoreSystem",
+     
+    {
+      title: "Marital Status Checker",
+      desc: "This is a java code that i wrote during class, it allows user to enter his/her first character of marital status then display a message a full status message.",
+      github: "https://github.com/MuhluriMd/Marital-Status-Check",
     },
-  ],*/
+      ],
   python: [
     {
       title: "Count Words in a Text File",
