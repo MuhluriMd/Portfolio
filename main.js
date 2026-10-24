@@ -1,147 +1,253 @@
+
 document.addEventListener("DOMContentLoaded", () => {
-  // ==================== Typing effect ====================
-  const typingElement = document.getElementById("typing");
+    // =========================
+    // 1. TYPING ANIMATION
+    // =========================
+    const typingElement = document.getElementById("typing");
 
-  if (typingElement) {
-    const text = "Aspiring Software Developer (Student)";
-    let i = 0;
+    if (typingElement) {
+        const titles = [
+            "Aspiring Software Developer",
+            "Computer Science Student",
+            "Cybersecurity Enthusiast",
+            "Problem Solver"
+        ];
 
-    function typeWriter() {
-      if (i < text.length) {
-        typingElement.textContent += text.charAt(i);
-        i++;
-        setTimeout(typeWriter, 80);
-      }
-    }
+        let titleIndex = 0;
+        let characterIndex = 0;
+        let deleting = false;
 
-    typingElement.textContent = ""; // clear before typing starts
-    typeWriter();
-  }
+        function typeWriter() {
+            const currentTitle = titles[titleIndex];
 
+            if (!deleting) {
+                typingElement.textContent =
+                    currentTitle.substring(0, characterIndex + 1);
 
-  // ==================== Scroll spy for nav links ====================
-  const sections = document.querySelectorAll("section");
-  const navLinks = document.querySelectorAll("#navigation a");
+                characterIndex++;
 
-  window.addEventListener("scroll", () => {
-    let current = "";
-    sections.forEach((section) => {
-      const sectionTop = section.offsetTop - 80;
-      if (window.scrollY >= sectionTop) {
-        current = section.getAttribute("id");
-      }
-    });
+                if (characterIndex === currentTitle.length) {
+                    deleting = true;
+                    setTimeout(typeWriter, 1400);
+                    return;
+                }
+            } else {
+                typingElement.textContent =
+                    currentTitle.substring(0, characterIndex - 1);
 
-    navLinks.forEach((link) => {
-      link.classList.remove("active");
-      if (link.getAttribute("href").includes(current)) {
-        link.classList.add("active");
-      }
-    });
-  });
+                characterIndex--;
 
-  // ==================== Project modal setup ====================
-const modal = document.getElementById("projectModal");
-const modalTitle = document.getElementById("modalTitle");
-const modalBody = document.getElementById("modalBody");
-const closeModal = document.querySelector(".close");
+                if (characterIndex === 0) {
+                    deleting = false;
+                    titleIndex = (titleIndex + 1) % titles.length;
+                }
+            }
 
-const projectData = {
-  web: [
-    {
-      title: "Personal Portfolio",
-      desc: "This is a my profile portfolio, built using HTML, CSS, and JS. ",
-      live: "https://muhlurimd.github.io/Portfolio/", 
-      github: "https://github.com/MuhluriMd/Portfolio", 
-    },
-    {
-      title: "MUWACE Online Shop",
-      desc: "Fashion store website with multiple categories.(Under development)Techonologies used: HTML, CSS, JavaScript.",
-      live: "", 
-      github: "https://github.com/MuhluriMd/Muwace-Web-Application", 
-    },
-  ],
-  group: [
-    {
-      title: "Vigilant Aid",
-      desc: "VigilantAids is a mobile application designed to empower visually impaired individuals to move through the world with greater confidence, safety, and independence.Techonologies used: Android Studio, PostgreSQL",
-      github: "https://github.com/K-Moeti/VigilantAid",
-    },
-    {
-      title: "Library Management System",
-      desc: "A system for managing books, members in a library. Technologies Used: Java and MySQL for backend and JavaFX for frontend.",
-      github: "https://github.com/MuhluriMd/Library-Management-System",
-    }
-  ],
-      
-  java: [
-    {
-      title: "😊First Code",
-      desc: "A Java code that prints 'Hello, World!' to the console.",
-      github: "https://github.com/MuhluriMd/FirstCode/blob/main/Hello/src/hello/Hello.java",
-    },
-     
-    {
-      title: "Marital Status Checker",
-      desc: "This is a java code that i wrote during class, it allows user to enter his/her first character of marital status then display a message a full status message.",
-      github: "https://github.com/MuhluriMd/Marital-Status-Check",
-    },
-      ],
-  python: [
-    {
-      title: "Count Words in a Text File",
-      desc: "Allow user to enter sentence and then it count number of words and words that are repeated.",
-      github: "https://github.com/MuhluriMd/CountWords/blob/main/WordCount.py",
-    },
-    
-  ],
-};
-
-// Handle "View" button click
-document.querySelectorAll(".view-btn").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const category = btn.dataset.category;
-    const projects = projectData[category] || [];
-
-    modalTitle.textContent = btn.parentElement.querySelector("h3").textContent;
-
-    modalBody.innerHTML = projects
-      .map((p) => {
-        // Build links dynamically
-        let linksHTML = "";
-        if (p.live) {
-          linksHTML += `<a href="${p.live}" target="_blank" style="margin-right: 10px; color: #007bff; text-decoration: none;">🌐 Live Demo</a>`;
-        }
-        if (p.github) {
-          linksHTML += `<a href="${p.github}" target="_blank" style="color: #333; text-decoration: none;">💻 GitHub</a>`;
+            setTimeout(typeWriter, deleting ? 40 : 85);
         }
 
-        // Render project card
-        return `
-          <div style="margin-bottom: 20px; border-bottom: 1px solid #ccc; padding-bottom: 10px;">
-            <h4>${p.title}</h4>
-            <p>${p.desc.replace(/\n/g, "<br>")}</p>
-            <div style="margin-top: 8px;">
-              ${linksHTML}
-            </div>
-          </div>
-        `;
-      })
-      .join("");
+        typeWriter();
+    }
 
-    modal.style.display = "block";
-  });
-});
+    // =========================
+    // 2. NAVIGATION HIGHLIGHTING
+    // =========================
+    const sections = document.querySelectorAll(
+        ".content section[id]"
+    );
 
+    const navLinks = document.querySelectorAll(
+        "#navigation a[href^='#']"
+    );
 
-// Close modal when clicking X or outside the modal
-if (closeModal) {
-  closeModal.addEventListener("click", () => (modal.style.display = "none"));
-}
+    function updateActiveLink() {
+        let currentSection = "";
 
-window.addEventListener("click", (e) => {
-  if (e.target === modal) modal.style.display = "none";
-});
+        sections.forEach((section) => {
+            const sectionTop =
+                section.getBoundingClientRect().top;
 
+            if (sectionTop <= 150) {
+                currentSection = section.id;
+            }
+        });
 
+        navLinks.forEach((link) => {
+            const isActive =
+                link.getAttribute("href") === `#${currentSection}`;
+
+            if (isActive) {
+                link.classList.add("active");
+            } else {
+                link.classList.remove("active");
+            }
+        });
+    }
+
+    window.addEventListener("scroll", updateActiveLink, {
+        passive: true
+    });
+
+    updateActiveLink();
+
+    // =========================
+    // 3. PROJECT DATA
+    // =========================
+    const projectData = {
+        web: [
+            {
+                title: "Personal Portfolio",
+                desc: "A personal portfolio website showcasing my skills, education, and projects. Built with HTML, CSS, and JavaScript.",
+                live: "https://muhlurimd.github.io/Portfolio/",
+                github: "https://github.com/MuhluriMd/Portfolio"
+            },
+            {
+                title: "MUWACE Online Shop",
+                desc: "An online fashion store project featuring multiple product categories. Currently under development.",
+                github: "https://github.com/MuhluriMd/Muwace-Web-Application"
+            }
+        ],
+
+        group: [
+            {
+                title: "VigilantAid",
+                desc: "A mobile application project designed to support visually impaired people with greater independence. Technologies include Android Studio and PostgreSQL.",
+                github: "https://github.com/K-Moeti/VigilantAid"
+            },
+            {
+                title: "Library Management System",
+                desc: "A library management application for managing books and members, using Java, MySQL, and JavaFX.",
+                github: "https://github.com/MuhluriMd/Library-Management-System"
+            }
+        ],
+
+        java: [
+            {
+                title: "First Code",
+                desc: "A beginner Java program that prints Hello, World! to the console.",
+                github: "https://github.com/MuhluriMd/FirstCode/blob/main/Hello/src/hello/Hello.java"
+            },
+            {
+                title: "Marital Status Checker",
+                desc: "A Java exercise that accepts a character representing marital status and displays the corresponding status.",
+                github: "https://github.com/MuhluriMd/Marital-Status-Check"
+            }
+        ],
+
+        python: [
+            {
+                title: "Count Words in a Text File",
+                desc: "A Python project that counts words in text and identifies repeated words.",
+                github: "https://github.com/MuhluriMd/CountWords/blob/main/WordCount.py"
+            }
+        ]
+    };
+
+    // =========================
+    // 4. PROJECT MODAL
+    // =========================
+    const modal = document.getElementById("projectModal");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalBody = document.getElementById("modalBody");
+    const closeButton = document.querySelector(".close");
+
+    if (!modal || !modalTitle || !modalBody) {
+        return;
+    }
+
+    function closeModal() {
+        modal.style.display = "none";
+        document.body.style.overflow = "";
+    }
+
+    function addExternalLink(container, url, label) {
+        if (!url) return;
+
+        const link = document.createElement("a");
+        link.href = url;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = label;
+
+        container.appendChild(link);
+    }
+
+    document.querySelectorAll(".view-btn").forEach((button) => {
+        button.addEventListener("click", () => {
+            const category = button.dataset.category;
+            const projects = projectData[category] || [];
+            const heading =
+                button.parentElement.querySelector("h3");
+
+            modalTitle.textContent = heading
+                ? heading.textContent
+                : "Projects";
+
+            modalBody.replaceChildren();
+
+            projects.forEach((project) => {
+                const card = document.createElement("article");
+                card.className = "modal-project";
+
+                const heading = document.createElement("h4");
+                heading.textContent = project.title;
+
+                const description = document.createElement("p");
+                description.textContent = project.desc;
+
+                const links = document.createElement("div");
+                links.className = "project-links";
+
+                addExternalLink(
+                    links,
+                    project.live,
+                    "🌐 Live Demo"
+                );
+
+                addExternalLink(
+                    links,
+                    project.github,
+                    "💻 GitHub"
+                );
+
+                card.append(heading, description, links);
+                modalBody.appendChild(card);
+            });
+
+            modal.style.display = "block";
+            document.body.style.overflow = "hidden";
+
+            if (closeButton) {
+                closeButton.focus();
+            }
+        });
+    });
+
+    if (closeButton) {
+        closeButton.setAttribute("role", "button");
+        closeButton.setAttribute("tabindex", "0");
+        closeButton.setAttribute("aria-label", "Close projects");
+
+        closeButton.addEventListener("click", closeModal);
+
+        closeButton.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                closeModal();
+            }
+        });
+    }
+
+    window.addEventListener("click", (event) => {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" &&
+            modal.style.display === "block") {
+            closeModal();
+        }
+    });
 });
